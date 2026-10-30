@@ -1,13 +1,11 @@
 /* Main site stylesheet — layout, typography and theme colors */
 :root {
-    --accent: #c65a20;
-    /* warm orange */
+    --accent: #007f7f; /*greenish teal */
     --accent-dark: #a14812;
-    --bg: #fbf2e8;
-    /* light cream */
+    --bg: #d2f7f4;
+    /* light teal */
     --surface: #ffffff;
-    --text: #5a3e2b;
-    /* dark brown */
+    --text: #003168;
     --muted: #6b5e53;
     --radius: 8px;
 }
