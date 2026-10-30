@@ -76,4 +76,58 @@ const drawHistogram = (data) => {
         .attr("x", 30)
         .attr("y", 20)
         .attr("class", "axis-label"); // Set the color of the label in visualisation.css
-}; 
+
+    // Tooltip for histogram bars
+    const histTooltipWidth = 140;
+    const histTooltipHeight = 40;
+
+    const histTooltip = innerChart.append("g")
+        .attr("class", "hist-tooltip")
+        .style("opacity", 0)
+        .style("pointer-events", "none");
+
+    histTooltip.append("rect")
+        .attr("width", histTooltipWidth)
+        .attr("height", histTooltipHeight)
+        .attr("rx", 3)
+        .attr("ry", 3)
+        .attr("fill", barColor)
+        .attr("fill-opacity", 0.85);
+
+    const histTooltipText = histTooltip.append("text")
+        .attr("fill", "white")
+        .style("font-size", "12px")
+        .style("font-weight", 600)
+        .attr("text-anchor", "middle");
+
+    histTooltipText.append("tspan")
+        .attr("class", "line1")
+        .attr("x", histTooltipWidth / 2)
+        .attr("y", 16);
+
+    histTooltipText.append("tspan")
+        .attr("class", "line2")
+        .attr("x", histTooltipWidth / 2)
+        .attr("y", 32);
+
+    innerChart.selectAll(".bar")
+        .on("mouseenter", (e, d) => {
+            histTooltipText.select(".line1").text(`${d.x0}–${d.x1} kWh/year`);
+            histTooltipText.select(".line2").text(`${d.length} TVs`);
+
+            const barCentre = (xScale(d.x0) + xScale(d.x1)) / 2;
+            const tipX = barCentre - histTooltipWidth / 2;
+            const tipY = Math.max(0, yScale(d.length) - histTooltipHeight - 8);
+
+            histTooltip
+                .interrupt()
+                .attr("transform", `translate(${tipX}, ${tipY})`)
+                .transition()
+                .duration(200)
+                .style("opacity", 1);
+        })
+        .on("mouseleave", () => {
+            histTooltip.interrupt().style("opacity", 0);
+        })
+
+    };

@@ -5,7 +5,7 @@
     --bg: #d2f7f4;
     /* light teal */
     --surface: #ffffff;
-    --text: #003168;
+    --text: #20124d;
     --muted: #6b5e53;
     --radius: 8px;
 }
@@ -95,7 +95,6 @@ p {
 #filters_screen .filter {
     border: none;
     background: var(--accent);
-    /* dark orange by default */
     color: white;
     padding: 8px 14px;
     border-radius: 8px;
@@ -106,8 +105,7 @@ p {
 
 /* Active filter: pale background, dark text */
 #filters_screen .filter.active {
-    background: #f3d9b9;
-    /* pale/light orange */
+    background: #007f7f;
     color: var(--text);
 }
 
@@ -135,8 +133,7 @@ p {
 
 /* Footer */
 footer {
-    background: #c65a20;
-    /* dark brown */
+    background:#007f7f;
     color: #ffffff;
     padding: 14px 24px;
     margin-top: 24px;

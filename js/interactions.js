@@ -32,7 +32,7 @@ const populateFilters = (data) => {
 
     const updatedBins = binGenerator(updatedData);
 
-    d3.selectAll("#histogram rect")
+    d3.selectAll("#histogram .bar")
         .data(updatedBins)
         .transition()
             .duration(500) 
