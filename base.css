@@ -1,0 +1,171 @@
+/* Main site stylesheet — layout, typography and theme colors */
+:root {
+    --accent: #c65a20;
+    /* warm orange */
+    --accent-dark: #a14812;
+    --bg: #fbf2e8;
+    /* light cream */
+    --surface: #ffffff;
+    --text: #5a3e2b;
+    /* dark brown */
+    --muted: #6b5e53;
+    --radius: 8px;
+}
+
+/* Page reset and basic typography */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+a {
+    color: var(--accent-dark);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: var(--accent);
+    color: white;
+    padding: 22px 24px;
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.06);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Main content area */
+main {
+    padding: 28px 24px;
+}
+
+main>div {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--text);
+    margin: 0 0 12px 0;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    margin: 0 0 16px 0;
+    color: #3f2f28;
+}
+
+/* Filters/buttons */
+#filters_screen {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 14px 0 18px 0;
+}
+
+/* Filter buttons — use classes so we can toggle active state */
+#filters_screen .filter {
+    border: none;
+    background: var(--accent);
+    /* dark orange by default */
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Active filter: pale background, dark text */
+#filters_screen .filter.active {
+    background: #f3d9b9;
+    /* pale/light orange */
+    color: var(--text);
+}
+
+#filters_screen .filter:focus {
+    outline: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Chart container - keep a little spacing */
+.responsive-svg-container {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 28px;
+}
+
+/* Data source note */
+.body {
+    margin-top: 10px;
+    color: #3f2f28;
+}
+
+.body a {
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: #c65a20;
+    /* dark brown */
+    color: #ffffff;
+    padding: 14px 24px;
+    margin-top: 24px;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Small utility */
+.lead {
+    font-size: 16px;
+    color: #4a362e;
+}
+
+@media screen and (max-width:596px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    main {
+        padding: 18px 14px;
+    }
+
+    #filters_screen button {
+        padding: 8px 10px;
+    }
+}
