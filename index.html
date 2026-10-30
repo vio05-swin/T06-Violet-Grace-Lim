@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Make the page render correctly on mobile and desktop screens. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive D3 Chart</title>
+    <!-- Load the shared page layout and chart-specific styles. -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisations.css">
+</head>
+
+<body>
+    <!-- Identify the subject of the visualisation. -->
+    <header>
+        <h1>TV Energy Consumption</h1>
+    </header>
+
+    <!-- Present the chart title, filters, charts, and data attribution. -->
+    <main>
+        <div>
+            <h1>Energy Consumption for different TV screen types and sizes</h1>
+            <p>TV's vary considerably in energy consumption.</p>
+
+            <!-- JavaScript adds screen-technology filter buttons here. -->
+            <div id="filters_screen"></div>
+
+            <!-- JavaScript renders the energy histogram and TV scatterplot here. -->
+            <div id="histogram" class="responsive-svg-container"></div>
+            <!-- T06-2 Step 1.2 call new scatterplot.js file in index.html -->
+            <div id="scatterplot" class="responsive-svg-container"></div>
+            <!-- Credit the source of the television energy-rating data. -->
+            <div class="body">
+                <h3>Data source</h3>
+                <p>
+                    <a href="https://data.gov.au/">
+                        Energy Rating Data for household appliances – Televisions
+                    </a><br>
+                    Downloaded Jan 2025
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Close the page with its course and year attribution. -->
+    <footer>
+        <p>&copy; 2026 Data Visualisation Week 6</p>
+    </footer>
+
+    <!-- Load D3 before the chart code, and load the CSV after its renderers. -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/shared-constants.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/load-data.js"></script>
+</body>
+
+</html>
